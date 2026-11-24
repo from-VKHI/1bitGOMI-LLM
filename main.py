@@ -216,3 +216,7 @@ sample_w = model.blocks[0].attn.qkv.weight
 w_ternary = (sample_w / sample_w.abs().mean()).round().clamp(-1, 1)
 print("\n--- 量子化された重みの分布（第1層） ---")
 print(f"-1の数: {(w_ternary == -1).sum().item()}, 0の数: {(w_ternary == 0).sum().item()}, +1の数: {(w_ternary == 1).sum().item()}")
+
+# ← ここに追記する（左端からスペースなしで書く）
+torch.save(model.state_dict(), "mini_bitnet.pt")
+print("パラメーターを mini_bitnet.pt に保存しました！")
