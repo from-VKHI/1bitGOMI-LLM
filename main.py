@@ -1,4 +1,4 @@
-import re
+import requests as re
 import string
 import time
 import requests
